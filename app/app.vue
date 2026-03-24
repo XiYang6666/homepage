@@ -59,7 +59,7 @@
         </main>
 
         <footer
-            class="footer fixed bottom-4 text-lg text-zinc-400 font-thin text-center"
+            class="footer fixed bottom-4 text-base text-zinc-400 font-thin text-center flex flex-rol gap-x-4 items-center justify-center"
             v-html="config.public.footer"
         ></footer>
     </div>
@@ -120,5 +120,10 @@ useHead({
 #hitokoto {
     @apply transition-opacity duration-500 transform-gpu;
     opacity: 0;
+}
+footer > span > img {
+    @apply inline-block;
+    @apply align-middle;
+    @apply h-[1rem];
 }
 </style>

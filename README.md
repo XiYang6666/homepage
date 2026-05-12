@@ -1,4 +1,4 @@
-# mainpage
+# homepage
 
 Nuxt4 简单个人主页 / A simple personal homepage written in Nuxt4
 

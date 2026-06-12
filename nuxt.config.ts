@@ -42,5 +42,9 @@ export default defineNuxtConfig({
         imageLinks: [],
     },
 
+    experimental: {
+        writeEarlyHints: true,
+    },
+
     compatibilityDate: "2025-08-11",
 });

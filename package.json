@@ -10,7 +10,7 @@
         "postinstall": "nuxt prepare"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^7.2.0",
+        "@fortawesome/fontawesome-free": "^7.3.0",
         "node-cache": "^5.1.2",
         "nuxt": "^4.4.8",
         "png-to-ico": "^3.0.1",

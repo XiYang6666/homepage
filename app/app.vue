@@ -9,8 +9,8 @@
             <span
                 v-if="!config.public.hasFormerName"
                 class="text-4xl text-zinc-300 font-sans font-thin text-center mt-6 mb-2"
-                >{{ config.public.ownerName }}</span
-            >
+                >{{ config.public.ownerName }}
+            </span>
             <div
                 v-if="config.public.hasFormerName"
                 class="content flex items-center flex-col mt-6 mb-1 overflow-hidden transition-all h-[2.5rem] hover:h-[5rem]"
@@ -90,7 +90,6 @@ onMounted(() => {
 useSeoMeta({
     title: config.public.title,
     description: config.public.description,
-    keywords: config.public.keywords.join(", "),
 });
 useHead({
     meta: config.public.meta,
@@ -127,3 +126,4 @@ footer > span > img {
     @apply h-[1rem];
 }
 </style>
+

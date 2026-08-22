@@ -26,7 +26,6 @@ export default defineNuxtConfig({
             ownerFormerName: "ExampleFormer",
             welcome: "Welcome to Example's homepage",
             description: "Example's homepage",
-            keywords: ["main page"],
             links: {},
             socials: {},
             footer: "an example footer",

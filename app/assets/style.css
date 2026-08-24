@@ -19,7 +19,7 @@ body {
 
 .button {
     @apply border-2 border-zinc-600 rounded-full;
-    @apply hover:bg-slate-600 backdrop-blur-sm;
+    @apply hover:bg-slate-600;
     @apply transition-colors duration-500 transform-gpu;
 }
 

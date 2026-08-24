@@ -30,7 +30,12 @@
                         >
                             <Icon name="material-symbols:arrow-forward-ios-rounded" />
                         </span>
-                        <a :href="url" class="flex items-center justify-center w-full h-full" :title="url">
+                        <a
+                            :href="url"
+                            class="flex items-center justify-center w-full h-full"
+                            :class="name == currentLineName ? ' pointer-events-none ' : ''"
+                            :title="url"
+                        >
                             {{ name }}
                         </a>
                     </li>

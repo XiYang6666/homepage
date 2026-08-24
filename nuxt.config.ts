@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     routeRules: {
         "/": { swr: true },
         "/about": { swr: true },
+        "/friends": { swr: true },
     },
     runtimeConfig: {
         public: {

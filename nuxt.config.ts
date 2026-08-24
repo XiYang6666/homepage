@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
-    modules: ["@nuxtjs/tailwindcss"],
-    css: ["assets/style.css"],
+    modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
+    css: ["assets/style.css", "assets/animations.css"],
     app: {
         head: {
             link: [
@@ -14,20 +14,20 @@ export default defineNuxtConfig({
         },
     },
     routeRules: {
-        "/": {
-            swr: true,
-        },
+        "/": { swr: true },
+        "/about": { swr: true },
     },
     runtimeConfig: {
         public: {
             title: "Example's Homepage",
-            ownerEmail: "example@example.com",
             ownerName: "ExampleName",
             ownerFormerName: "ExampleFormer",
+            ownerEmail: "example@example.com",
             welcome: "Welcome to Example's homepage",
             description: "Example's homepage",
-            links: {},
-            socials: {},
+            links: [],
+            socials: [],
+            friendLinks: [],
             footer: "an example footer",
             meta: [],
             lang: "zh-CN",
@@ -35,15 +35,20 @@ export default defineNuxtConfig({
 
         hitokotoUrl: "https://v1.hitokoto.cn",
         gravatarUrl: "https://gravatar.com",
-        avatarCacheTime: 60 * 60 * 1000, // 1 hour
+        avatarCacheTime: 60 * 60, // 1 hour
         avatarProxy: false,
         imageHosting: false,
         imageLinks: [],
+
+        aboutMarkdownUrl: "https://raw.githubusercontent.com/_Example/_Example/refs/heads/master/README.md",
+        aboutCacheTime: 60 * 60, //1 hour
     },
 
     experimental: {
         writeEarlyHints: true,
+        viewTransition: true,
     },
 
     compatibilityDate: "2025-08-11",
 });
+

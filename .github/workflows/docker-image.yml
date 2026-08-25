@@ -6,7 +6,6 @@ on:
 
 env:
   DOCKER_HUB_USER: ${{ github.repository_owner }}
-  DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_TOKEN }}
   DOCKER_IMAGE_TAG: ${{ github.repository }}
 
 jobs:
@@ -36,7 +35,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ env.DOCKER_HUB_USER }}
-          password: ${{ env.DOCKER_HUB_TOKEN }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag $DOCKER_IMAGE_TAG:$(git rev-parse --abbrev-ref HEAD)

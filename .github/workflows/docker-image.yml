@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 env:
-  DOCKER_HUB_USER: ${{ github.repository_owner }}
+  DOCKER_HUB_USER: xiyang6666
   DOCKER_IMAGE_TAG: ${{ github.repository }}
 
 jobs:

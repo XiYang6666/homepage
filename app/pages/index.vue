@@ -88,11 +88,3 @@ useHead({
 });
 </script>
 
-<style>
-footer > span > img {
-    @apply inline-block;
-    @apply align-middle;
-    @apply h-[1rem];
-}
-</style>
-

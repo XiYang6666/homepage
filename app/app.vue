@@ -4,16 +4,14 @@ import Footer from "./components/Footer.vue";
 
 <template>
     <div class="bg h-dvh w-dvw overflow-hidden bg-black bg-opacity-80 flex items-center justify-center flex-col">
-        <div class="flex items-center justify-center flex-col">
-            <NuxtPage />
+        <NuxtPage />
 
-            <nav class="flex items-center flex-col mt-6 gap-8" style="view-transition-name: nav">
-                <NavList />
-                <SocialList />
-            </nav>
+        <nav class="flex items-center flex-col mt-6 gap-8" style="view-transition-name: nav">
+            <NavList />
+            <SocialList />
+        </nav>
 
-            <Footer />
-        </div>
+        <Footer />
     </div>
 </template>
 

@@ -19,7 +19,8 @@ body {
 
 .button {
     @apply border-2 border-zinc-600 rounded-full;
-    @apply hover:bg-slate-600;
+    @apply hover:bg-slate-500/40;
     @apply transition-colors duration-500 transform-gpu;
+    @apply hover:shadow-slate-700/60 hover:shadow-md;
 }
 

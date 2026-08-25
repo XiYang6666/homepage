@@ -4,7 +4,7 @@
             <a
                 :href="link"
                 target="_blank"
-                class="flex items-center justify-center w-full h-full text-4xl text-white hover:text-slate-600 transition-colors duration-300 transform-gpu"
+                class="flex items-center justify-center w-full h-full text-4xl text-white hover:text-slate-500 transition-colors duration-300 transform-gpu"
             >
                 <Icon :name="icon" />
             </a>

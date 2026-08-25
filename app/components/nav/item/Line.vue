@@ -15,14 +15,15 @@
 
         <Transition name="line-selector">
             <div
-                v-if="isOpen"
-                class="absolute inset-x-0 rounded-xl bottom-full mb-2 border-2 border-zinc-600 backdrop-blur-sm overflow-hidden transition-all duration-300"
+                v-show="isOpen"
+                class="absolute inset-x-0 bottom-full mb-2 border-2 border-zinc-600 rounded-xl overflow-hidden bg-zinc-900/50 transform-gpu transition-all duration-300"
             >
                 <ul class="w-full h-full">
                     <li
-                        v-for="[name, url] in Object.entries(lines)"
+                        v-for="[index, [name, url]] in Object.entries(lines).entries()"
                         :key="name"
-                        class="relative w-full h-8 hover:bg-slate-600 transition-colors duration-500 transform-gpu text-nowrap border-t border-zinc-600"
+                        class="relative w-full h-8 hover:bg-slate-600 transition-colors duration-500 transform-gpu text-nowrap border-zinc-600"
+                        :class="index != 0 ? 'border-t' : ''"
                     >
                         <span
                             v-if="name == currentLineName"
@@ -31,10 +32,9 @@
                             <Icon name="material-symbols:arrow-forward-ios-rounded" />
                         </span>
                         <a
-                            :href="url"
+                            :href="makeLineLink(url)"
                             class="flex items-center justify-center w-full h-full"
                             :class="name == currentLineName ? ' pointer-events-none ' : ''"
-                            :title="url"
                         >
                             {{ name }}
                         </a>
@@ -54,8 +54,17 @@ const props = defineProps<{
 
 const lines = props.navItem.lines;
 const currentUrl = useRequestURL();
-const currentHost = currentUrl.hostname;
-const [currentLineName] = Object.entries(lines).findLast(([, url]) => URL.parse(url)?.hostname == currentHost) ?? [];
+const currentHost = currentUrl.host;
+const [currentLineName] = Object.entries(lines).findLast(([, url]) => URL.parse(url)?.host == currentHost) ?? [];
+
+function makeLineLink(rawLink: string): string {
+    console.log(rawLink);
+    const resultUrl = new URL(currentUrl);
+    const newUrl = URL.parse(rawLink)!;
+    resultUrl.hostname = newUrl.hostname;
+    resultUrl.port = newUrl.port;
+    return resultUrl.toJSON();
+}
 
 const isOpen = ref(false);
 

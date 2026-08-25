@@ -24,3 +24,21 @@ body {
     @apply hover:shadow-slate-700/60 hover:shadow-md;
 }
 
+::-webkit-scrollbar {
+    @apply w-1 h-1;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-zinc-700;
+    @apply rounded-md;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-zinc-500;
+    @apply rounded-md;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+}
+

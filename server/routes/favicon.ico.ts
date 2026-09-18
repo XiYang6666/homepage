@@ -9,12 +9,12 @@ export default defineEventHandler(async (event) => {
     const cached = await storage.getItem<{ buffer: string; expiresAt: number }>(key);
     if (!cached) {
         const buffer = await refreshFavicon();
-        return send(event, buffer, "image/vnd.microsoft.icon");
+        return send(event, buffer, "image/x-icon");
     }
 
     if (cached.expiresAt <= Date.now()) refreshFavicon();
     const buffer = Buffer.from(cached.buffer, "base64");
-    return send(event, buffer, "image/vnd.microsoft.icon");
+    return send(event, buffer, "image/x-icon");
 });
 
 let refreshPromise: Promise<Buffer> | undefined;

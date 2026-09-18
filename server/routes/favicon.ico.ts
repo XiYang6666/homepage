@@ -1,6 +1,7 @@
 import { getIconBuffer } from "../util/icon";
 
 export default defineEventHandler(async (event) => {
-    return await getIconBuffer();
+    const time = Date.now();
+    return await getIconBuffer(time);
 });
 

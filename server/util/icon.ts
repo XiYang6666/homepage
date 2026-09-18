@@ -2,8 +2,8 @@ import sharp from "sharp";
 import pngToIco from "png-to-ico";
 import { getAvatarBuffer } from "./avatar";
 
-export async function getIconBuffer(): Promise<Buffer> {
-    const avatarBuffer = await getAvatarBuffer();
+export async function getIconBuffer(time?: number): Promise<Buffer> {
+    const avatarBuffer = await getAvatarBuffer(time);
 
     const sharpImage = sharp(avatarBuffer);
     const imgMeta = await sharpImage.metadata();

@@ -2,12 +2,12 @@ import sharp from "sharp";
 import pngToIco from "png-to-ico";
 import { getAvatarBuffer } from "./avatar";
 
-export async function getIconBuffer(time?: number): Promise<Buffer> {
-    const avatarBuffer = await getAvatarBuffer(time);
+export async function getIconBuffer(size?: number, time?: number): Promise<Buffer> {
+    const avatarBuffer = await getAvatarBuffer(size, time);
 
     const sharpImage = sharp(avatarBuffer);
     const imgMeta = await sharpImage.metadata();
-    const radius = 64;
+    const radius = imgMeta.width / 4;
     const pngBuffer = await sharpImage
         .composite([
             {

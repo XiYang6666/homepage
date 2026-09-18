@@ -26,7 +26,7 @@ function refreshAvatar() {
     if (refreshPromise) return refreshPromise;
     refreshPromise = (async () => {
         const time = Date.now();
-        const buffer = await getAvatarBuffer(time);
+        const buffer = await getAvatarBuffer(128, time);
         await storage.setItem(key, {
             buffer: buffer.toString("base64"),
             expiresAt: time + config.avatarCacheTime * 1000,

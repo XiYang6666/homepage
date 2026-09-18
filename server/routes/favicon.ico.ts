@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     const cached = await storage.getItem<{ buffer: string; expiresAt: number }>(key);
     if (!cached) {
         const buffer = await refreshFavicon();
-        return send(event, buffer, "image/png");
+        return send(event, buffer, "image/vnd.microsoft.icon");
     }
 
     if (cached.expiresAt <= Date.now()) refreshFavicon();
@@ -23,7 +23,7 @@ function refreshFavicon() {
     if (refreshPromise) return refreshPromise;
     refreshPromise = (async () => {
         const time = Date.now();
-        const buffer = await getIconBuffer(time);
+        const buffer = await getIconBuffer(256, time);
         await storage.setItem(key, {
             buffer: buffer.toString("base64"),
             expiresAt: time + config.avatarCacheTime * 1000,

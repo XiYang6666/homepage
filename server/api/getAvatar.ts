@@ -23,17 +23,15 @@ export default defineEventHandler(async (event) => {
 let refreshPromise: Promise<Buffer> | undefined;
 
 function refreshAvatar() {
-    if (!refreshPromise)
-        refreshPromise = (async () => {
-            const time = Date.now();
-            const buffer = await getAvatarBuffer(time);
-            await storage.setItem(key, {
-                buffer: buffer.toString("base64"),
-                expiresAt: Date.now() + config.avatarCacheTime * 1000,
-            });
-            return buffer;
-        })().finally(() => (refreshPromise = undefined));
-
-    return refreshPromise;
+    if (refreshPromise) return refreshPromise;
+    refreshPromise = (async () => {
+        const time = Date.now();
+        const buffer = await getAvatarBuffer(time);
+        await storage.setItem(key, {
+            buffer: buffer.toString("base64"),
+            expiresAt: time + config.avatarCacheTime * 1000,
+        });
+        return buffer;
+    })().finally(() => (refreshPromise = undefined));
 }
 

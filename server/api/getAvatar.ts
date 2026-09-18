@@ -5,18 +5,16 @@ const config = useRuntimeConfig();
 const storage = useStorage();
 const key = "avatar";
 
-const defaultSize = 128;
-
 export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const sizeRaw = query.s;
 
-    if (typeof sizeRaw !== "string") throw createError({ statusCode: 400 });
-    const size = parseInt(sizeRaw, 10);
+    if (typeof sizeRaw !== "string" && typeof sizeRaw !== "undefined") throw createError({ statusCode: 400 });
+    const size = sizeRaw ? parseInt(sizeRaw, 10) : undefined;
 
     if (!config.avatarProxy) return sendRedirect(event, getAvatarUrl(size).toString());
 
-    if (size != defaultSize) return await getAvatarBuffer(size, Date.now());
+    if (size) return await getAvatarBuffer(size, Date.now());
 
     const cached = await storage.getItem<{ buffer: string; expiresAt: number }>(key);
     if (!cached) {

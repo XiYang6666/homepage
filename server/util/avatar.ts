@@ -2,7 +2,7 @@ import { createHash } from "crypto";
 
 const config = useRuntimeConfig();
 
-export function getGravatarUrl(email: string, size: number = 128, time?: number) {
+export function getGravatarUrl(email: string, size: number = 256, time?: number) {
     const trimmedEmail = email.trim().toLowerCase();
     const hash = createHash("sha256").update(trimmedEmail).digest("hex");
     console.log(

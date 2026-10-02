@@ -32,7 +32,9 @@ const defaultHitokoto: HitokotoResult = {
     length: 25,
 };
 const hitokotoResult = useState<HitokotoResult | null>("hitokoto", () => null);
-hitokotoResult.value ??= await $fetch<HitokotoResult>("/api/getHitokoto", { timeout: 5000 }).catch(() => defaultHitokoto);
+hitokotoResult.value ??= await $fetch<HitokotoResult>("/api/getHitokoto", { timeout: 5000 }).catch(
+    () => defaultHitokoto,
+);
 
 const hitokoto = computed(() => hitokotoResult.value);
 const hitokotoTitle = computed(() => {
@@ -43,31 +45,14 @@ const hitokotoTitle = computed(() => {
     return `来源: ${from}${fromWho}`;
 });
 
-useSeoMeta({
-    title: config.public.title,
-    description: config.public.description,
-});
 useHead({
-    meta: config.public.meta,
     link: [
-        {
-            rel: "shortcut icon",
-            href: "/favicon.ico",
-        },
         {
             rel: "preload",
             href: "/api/getAvatar",
             as: "image",
         },
-        {
-            rel: "preload",
-            href: "/api/getRandomBackground",
-            as: "image",
-        },
     ],
-    htmlAttrs: {
-        lang: config.public.lang,
-    },
 });
 </script>
 

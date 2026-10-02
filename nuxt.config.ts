@@ -78,3 +78,4 @@ declare module "nuxt/schema" {
         imageLinks: (typeof privateRuntimeConfig)["imageLinks"];
     }
 }
+

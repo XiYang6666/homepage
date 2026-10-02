@@ -17,6 +17,24 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig();
+
+useSeoMeta({
+    titleTemplate: (title) => (title ? `${config.public.title} | %s` : config.public.title),
+    description: config.public.description,
+});
+useHead({
+    meta: config.public.meta,
+    link: [
+        {
+            rel: "preload",
+            href: "/api/getRandomBackground",
+            as: "image",
+        },
+    ],
+    htmlAttrs: {
+        lang: config.public.lang,
+    },
+});
 </script>
 
 <style>

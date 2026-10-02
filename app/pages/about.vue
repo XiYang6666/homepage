@@ -11,5 +11,5 @@
 
 <script setup lang="ts">
 const { data: content } = await useAsyncData<string>(() => $fetch("/api/getAbout"));
+useHead({ title: "关于" });
 </script>
-

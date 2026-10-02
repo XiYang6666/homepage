@@ -5,5 +5,6 @@
     </ContentSection>
 </template>
 
-
-
+<script setup lang="ts">
+useHead({ title: "友链" });
+</script>

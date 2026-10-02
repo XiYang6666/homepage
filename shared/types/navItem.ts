@@ -1,8 +1,8 @@
-export declare interface BaseNavItem {
+export interface BaseNavItem {
     type: NavItemTypes | undefined;
 }
 
-export declare interface LinkNavItem extends BaseNavItem {
+export interface LinkNavItem extends BaseNavItem {
     type: "link";
     name: string;
     link: string;
@@ -10,11 +10,11 @@ export declare interface LinkNavItem extends BaseNavItem {
     external: boolean | undefined;
 }
 
-export declare interface LineNavItem extends BaseNavItem {
+export interface LineNavItem extends BaseNavItem {
     type: "line";
     lines: Record<string, string>;
 }
 
-export declare type NavItem = LinkNavItem | LineNavItem;
-export declare type NavItemTypes = "link" | "line";
+export type NavItem = LinkNavItem | LineNavItem;
+export type NavItemTypes = "link" | "line";
 

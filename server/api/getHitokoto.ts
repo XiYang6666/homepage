@@ -1,4 +1,4 @@
-import { HitokotoResult } from "~~/shared/types/hitokoto";
+import type { HitokotoResult } from "~~/shared/types/hitokoto";
 
 const config = useRuntimeConfig();
 const cacheOpts = { maxAge: config.hitokotoCacheTime, swr: true };

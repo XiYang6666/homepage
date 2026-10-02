@@ -1,10 +1,10 @@
-<script setup lang="ts">
-import Footer from "./components/Footer.vue";
-</script>
-
 <template>
     <div class="bg h-dvh w-dvw overflow-hidden bg-black bg-opacity-80 flex items-center justify-center flex-col">
-        <NuxtPage />
+        <main class="content flex items-center flex-col max-h-[calc(100dvh-20rem)] sm:max-h-[calc(100dvh-16rem)]">
+            <NuxtPage />
+
+            <span class="description text-lg text-zinc-400 font-thin text-center">{{ config.public.welcome }}</span>
+        </main>
 
         <nav class="flex items-center flex-col mt-6 gap-8" style="view-transition-name: nav">
             <NavList />
@@ -14,6 +14,10 @@ import Footer from "./components/Footer.vue";
         <Footer />
     </div>
 </template>
+
+<script setup lang="ts">
+const config = useRuntimeConfig();
+</script>
 
 <style>
 ::view-transition-old(nav),

@@ -1,9 +1,9 @@
-export declare interface HitokotoResult {
+export interface HitokotoResult {
     id: number; //一言标识
     hitokoto: string; //一言正文。编码方式 unicode。使用 utf-8。
     type: string; //类型。请参考第三节参数的表格
     from: string; //一言的出处
-    from_who: string | undefined; //一言的作者
+    from_who: string | null; //一言的作者
     creator: string; //添加者
     creator_uid: number; //添加者用户标识
     reviewer: number; //审核员标识

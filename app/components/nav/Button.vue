@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-28 h-10 button">
-        <slot :class="isSelected ? 'pointer-events-none' : ''" />
+        <slot />
         <span
             v-if="isSelected"
             class="absolute bottom-8 w-full inset-x-0 flex items-center justify-center"
@@ -19,4 +19,10 @@ defineProps({
     },
 });
 </script>
+
+<style>
+::view-transition-old(nav-button-arrow) {
+    @apply hidden;
+}
+</style>
 

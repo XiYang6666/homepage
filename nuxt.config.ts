@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: ["@nuxtjs/tailwindcss", "@nuxt/icon"],
-    css: ["assets/style.css", "assets/animations.css"],
+    css: ["assets/style.css"],
     app: {
         head: {
             link: [
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
             description: "Example's homepage",
             links: [],
             socials: [],
-            friendLinks: [],
+            friends: [],
             footer: "an example footer",
             meta: [],
             lang: "zh-CN",

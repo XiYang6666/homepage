@@ -2,7 +2,7 @@
     <div class="relative" ref="containerRef">
         <NavButton>
             <button class="flex items-center justify-center w-full h-full" @click="isOpen = !isOpen">
-                <span class="block w-full ml-2 text-nowrap">线路: {{ currentLineName ?? "未知" }}</span>
+                <span class="block w-full ml-2 text-nowrap"> 线路: {{ currentLineName ?? "未知" }} </span>
                 <span class="flex items-center justify-center mr-2 h-full">
                     <Icon
                         name="material-symbols:keyboard-arrow-up"
@@ -58,7 +58,6 @@ const currentHost = currentUrl.host;
 const [currentLineName] = Object.entries(lines).findLast(([, url]) => URL.parse(url)?.host == currentHost) ?? [];
 
 function makeLineLink(rawLink: string): string {
-    console.log(rawLink);
     const resultUrl = new URL(currentUrl);
     const newUrl = URL.parse(rawLink)!;
     resultUrl.hostname = newUrl.hostname;

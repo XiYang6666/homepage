@@ -1,4 +1,4 @@
-export declare interface SocialItem {
+export interface SocialItem {
     link: string;
     icon: string;
 }

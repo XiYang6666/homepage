@@ -29,9 +29,11 @@ export default defineNitroPlugin((app) => {
         const timingHeader = timing.marks
             .map((mark) => {
                 const duration = mark.time - lastTime;
+                lastTime = mark.time;
                 return `${mark.name};dur=${duration}`;
             })
             .join(",");
         setHeader(event, "Server-Timing", timingHeader);
     });
 });
+

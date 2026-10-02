@@ -1,6 +1,6 @@
 const config = useRuntimeConfig();
 const cacheOpts = {
-    maxAge: config.avatarCacheTime,
+    maxAge: config.aboutCacheTime,
     swr: true,
 };
 

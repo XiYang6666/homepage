@@ -13,9 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SocialItem } from "~~/shared/types/socialItem";
-
 const config = useRuntimeConfig();
-const socials = config.public.socials as SocialItem[];
+const socials = config.public.socials;
 </script>
 

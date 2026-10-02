@@ -32,7 +32,7 @@ const defaultHitokoto: HitokotoResult = {
     length: 25,
 };
 const hitokotoResult = useState<HitokotoResult | null>("hitokoto", () => null);
-hitokotoResult.value ??= await $fetch<HitokotoResult>("/api/getHitokoto").catch(() => defaultHitokoto);
+hitokotoResult.value ??= await $fetch<HitokotoResult>("/api/getHitokoto", { timeout: 5000 }).catch(() => defaultHitokoto);
 
 const hitokoto = computed(() => hitokotoResult.value);
 const hitokotoTitle = computed(() => {

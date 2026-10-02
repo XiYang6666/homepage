@@ -14,10 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import type { FriendItem } from "~~/shared/types/friendItem";
-
 const config = useRuntimeConfig();
 
-const friends = config.public.friends as FriendItem[];
+const friends = config.public.friends;
 </script>
 

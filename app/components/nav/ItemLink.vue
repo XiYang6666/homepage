@@ -1,7 +1,10 @@
 <template>
-    <NavButton :is-selected="isSelected()">
+    <NavButton class="group" :showArrow="isSelected()">
         <NuxtLink v-if="isSelected()" to="/" class="flex items-center justify-center w-full h-full">
-            {{ navItem.name }}
+            <HoverSwap duration="1000">
+                <template #default>{{ navItem.name }}</template>
+                <template #hover>返回主页</template>
+            </HoverSwap>
         </NuxtLink>
         <NuxtLink
             v-else

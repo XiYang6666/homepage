@@ -7,9 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NavItem } from "~~/shared/types/navItem";
-
 const config = useRuntimeConfig();
-const navItems = config.public.links as NavItem[];
+const navItems = config.public.links;
 </script>
 

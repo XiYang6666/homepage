@@ -2,7 +2,7 @@
     <div class="relative w-28 h-10 button">
         <slot />
         <span
-            v-if="isSelected"
+            v-if="showArrow"
             class="absolute bottom-8 w-full inset-x-0 flex items-center justify-center"
             style="view-transition-name: nav-button-arrow"
         >
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 defineProps({
-    isSelected: {
+    showArrow: {
         type: Boolean,
         default: false,
     },

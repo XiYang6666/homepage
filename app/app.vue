@@ -3,7 +3,9 @@
         <main class="content flex items-center flex-col max-h-[calc(100dvh-20rem)] sm:max-h-[calc(100dvh-16rem)]">
             <NuxtPage />
 
-            <span class="description text-lg text-zinc-400 font-thin text-center">{{ config.public.welcome }}</span>
+            <span class="description text-lg text-zinc-400 font-thin text-center" style="view-transition-name: welcome">
+                {{ config.public.welcome }}
+            </span>
         </main>
 
         <nav class="flex items-center flex-col mt-6 gap-8" style="view-transition-name: nav">
@@ -38,6 +40,10 @@ useHead({
 </script>
 
 <style>
+::view-transition-old(title),
+::view-transition-new(title),
+::view-transition-old(welcome),
+::view-transition-new(welcome),
 ::view-transition-old(nav),
 ::view-transition-new(nav) {
     @apply duration-300 transform-gpu;

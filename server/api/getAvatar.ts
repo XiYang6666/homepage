@@ -45,13 +45,12 @@ export default defineEventHandler(async (event) => {
     const forceRedirect = r === "true";
 
     if (forceRedirect) {
-        const corsResult = handleCors(event, {
+        const didHandleCors = handleCors(event, {
             origin: "*",
             methods: ["GET", "HEAD", "OPTIONS"],
-            maxAge: "86400",
             preflight: { statusCode: 204 },
         });
-        if (corsResult) return;
+        if (didHandleCors) return;
     }
 
     // 开启 redirect 或未启用代理时,一律重定向

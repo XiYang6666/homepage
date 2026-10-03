@@ -21,7 +21,7 @@
 const config = useRuntimeConfig();
 
 useSeoMeta({
-    titleTemplate: (title) => (title ? `${config.public.title} | %s` : config.public.title),
+    titleTemplate: (title) => (title ? `${config.public.title} | ${title}` : config.public.title),
     description: config.public.description,
 });
 useHead({

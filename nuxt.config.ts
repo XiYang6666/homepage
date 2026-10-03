@@ -53,9 +53,9 @@ export default defineNuxtConfig({
         },
     },
     routeRules: {
-        "/": { swr: true },
-        "/about": { swr: true },
-        "/friends": { swr: true },
+        "/": { swr: 3600, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
+        "/about": { swr: 3600, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
+        "/friends": { swr: 3600, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
     },
     runtimeConfig: {
         ...privateRuntimeConfig,

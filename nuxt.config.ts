@@ -53,7 +53,9 @@ export default defineNuxtConfig({
         },
     },
     routeRules: {
-        "/": { swr: 3600, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
+        // 首页用短 SWR：窗口内命中缓存、几乎零耗时；过期后仍先返回旧缓存再后台重渲染
+        // （stale-while-revalidate），既保证「一言」约 10s 级更新，又不阻塞响应。数值与 hitokotoCacheTime 对齐。
+        "/": { swr: 10, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
         "/about": { swr: 3600, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
         "/friends": { swr: 3600, cache: { varies: ["host", "x-forwarded-host", "x-forwarded-proto"] } },
     },

@@ -1,5 +1,5 @@
 <template>
-    <ul class="flex flex-wrap justify-center gap-2 list-none pl-0 max-w-96">
+    <ul class="flex flex-wrap justify-center gap-2 list-none pl-0 max-w-[30rem]">
         <slot name="head" />
         <li v-for="item in friends" :key="item.url">
             <FriendsTag :url="item.url">

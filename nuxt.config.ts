@@ -16,6 +16,10 @@ const publicRuntimeConfig = {
     links: [] as NavItem[],
     socials: [] as SocialItem[],
     friends: [] as FriendItem[],
+    linkExchange: {
+        showButton: true,
+        url: "mailto:example@example.com",
+    },
     footer: "an example footer",
     meta: [] as Meta[],
     lang: "zh-CN",

@@ -1,5 +1,6 @@
 <template>
     <ul class="socials flex flex-row flex-wrap items-center justify-center gap-x-6 gap-y-2 max-w-[95dvw]">
+        <slot name="head" />
         <li v-for="{ link, icon } of socials ?? []">
             <a
                 :href="link"
@@ -9,6 +10,7 @@
                 <Icon :name="icon" />
             </a>
         </li>
+        <slot name="tail" />
     </ul>
 </template>
 
